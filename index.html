@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omar Alakkad</title>
+<meta name="description" content="Omar Alakkad is a software developer in Kuwait building audit, risk, compliance, AML/CFT and ERP systems.">
+<meta property="og:title" content="Omar Alakkad">
+<meta property="og:description" content="Software for audit, risk and compliance teams.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2F4BFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: colour-blocked sections. Cobalt hero with oversized type and one amber sun,
+   a paper work section holding a bento grid of dark project cards, each with a live diagram,
+   then cobalt again for contact. A committed single look, so every colour is set explicitly. */
+:root {
+  --cobalt: #2F4BFF;
+  --ink: #0B1020;
+  --paper: #EFF0EA;
+  --sun: #FFB938;
+  --pg-ink-2: #4B5470;
+  --pg-rule: #CDD0C4;
+  --on-cobalt: #F1F2EC;
+
+  /* dark surface tokens used inside cards and the demo panel */
+  --s0: #0B1020;
+  --s1: #111A3A;
+  --s2: #1B2650;
+  --line: #2A3563;
+  --fg: #F1F2EC;
+  --fg-soft: #D5D9EE;
+  --fg2: #A7B0D6;
+  --hi: #FFB938;
+  --on-hi: #1A1300;
+  --alert: #FF7A66;
+  --warn: #FFB938;
+
+  --f-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-ar: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --t-hero: clamp(3rem, 8vw, 7.1rem);
+  --t-h2: clamp(2.4rem, 6vw, 5rem);
+  --t-h3: clamp(1.6rem, 2.4vw, 2.2rem);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--f-body);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 25; background: var(--ink); }
+.wrap { max-width: 1272px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 700; font-stretch: 85%; letter-spacing: -0.03em; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 4px; }
+section[id], header[id] { scroll-margin-top: 5rem; }
+.dk { color-scheme: dark; }
+
+/* progress + nav */
+.prog { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; height: 3px; z-index: 40; pointer-events: none; }
+.prog i { display: block; width: 100%; height: 100%; background: var(--sun); transform-origin: left; transform: scaleX(0); }
+.nav { position: fixed; z-index: 30; top: calc(env(safe-area-inset-top, 0px) + 12px); left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.15rem; padding: 0.35rem; max-width: calc(100vw - 24px); border-radius: 999px; background: rgba(11, 16, 32, 0.8); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.14); }
+.nav a { padding: 0.5rem 0.85rem; border-radius: 999px; color: var(--on-cobalt); font-size: 0.875rem; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background 0.15s ease; }
+.nav a:hover { background: rgba(255, 255, 255, 0.12); }
+.nav .logo { display: grid; place-items: center; width: 2.35rem; height: 2.35rem; padding: 0; margin-right: 0.25rem; background: var(--cobalt); font: 700 0.85rem var(--f-display); letter-spacing: 0; }
+.nav .nav-cta { background: var(--sun); color: var(--ink); font-weight: 600; margin-left: 0.15rem; }
+.nav .nav-cta:hover { background: #FFC85F; }
+
+/* hero */
+.hero { position: relative; overflow: hidden; background: var(--cobalt); color: var(--on-cobalt); padding-block: 8rem 5.5rem; }
+.hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 72px 72px; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%); mask-image: linear-gradient(to bottom, #000 30%, transparent 100%); }
+.sun { position: absolute; right: -7rem; top: -5rem; width: 27rem; height: 27rem; border-radius: 50%; background: var(--sun); }
+.hero-in { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.95fr); gap: 3rem 3.5rem; align-items: start; }
+.status { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 1.75rem; padding: 0.4rem 0.9rem; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.24); font-size: 0.875rem; font-weight: 500; }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--sun); }
+.h1 { font-size: var(--t-hero); font-weight: 800; font-stretch: 80%; line-height: 0.93; letter-spacing: -0.035em; }
+.h1 .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.h1 .w > span { display: inline-block; }
+.lede { margin-top: 1.75rem; max-width: 34rem; font-size: 1.25rem; line-height: 1.5; color: rgba(241, 242, 236, 0.88); }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.btn { display: inline-block; padding: 0.9rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 1.5px solid transparent; transition: transform 0.15s ease, background 0.15s ease; }
+.btn:hover { transform: translateY(-3px); }
+.btn.solid { background: var(--on-cobalt); color: var(--ink); }
+.btn.solid:hover { background: var(--sun); }
+.btn.line { border-color: rgba(241, 242, 236, 0.6); color: var(--on-cobalt); }
+.btn.line:hover { background: rgba(255, 255, 255, 0.14); }
+
+/* screening panel */
+.panel { position: relative; background: var(--s0); color: var(--fg); border: 1px solid var(--line); border-radius: 22px; padding: 1.6rem 1.6rem 1.3rem; min-width: 0; box-shadow: 0 24px 60px -24px rgba(5, 10, 60, 0.6); }
+.panel h2 { font-size: 1.75rem; line-height: 1.1; letter-spacing: -0.02em; }
+.panel .intro { margin-top: 0.55rem; font-size: 0.875rem; color: var(--fg2); line-height: 1.55; }
+.panel label { display: block; margin-top: 1.1rem; font-size: 0.875rem; font-weight: 500; }
+.panel input[type="text"] { display: block; width: 100%; margin-top: 0.35rem; padding: 0.75rem 0.9rem; font: 400 1.1rem/1.3 var(--f-body); color: var(--fg); background: var(--s1); border: 1px solid var(--fg2); border-radius: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+.chip { font: 500 0.8125rem/1.2 var(--f-body); padding: 0.4rem 0.7rem; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease; }
+.chip:hover { background: var(--s2); border-color: var(--fg2); }
+.keys { margin-top: 1.1rem; font-size: 0.875rem; color: var(--fg2); display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.4rem; min-height: 1.9rem; }
+.keys code { font: 500 0.8125rem/1 var(--f-data); color: var(--fg); background: var(--s2); padding: 0.3rem 0.5rem; border-radius: 6px; }
+.sum { margin-top: 0.9rem; font-size: 0.875rem; font-weight: 600; min-height: 1.4rem; }
+.results { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-direction: column; }
+.row { --tier: var(--fg2); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.1rem 1rem; padding-block: 0.7rem 0.6rem; border-top: 1px solid var(--line); }
+.row.t-strong { --tier: var(--alert); }
+.row.t-possible { --tier: var(--warn); }
+.row .who { min-width: 0; }
+.row .en { display: block; font-size: 0.875rem; color: var(--fg2); overflow-wrap: anywhere; }
+.row .ar { display: block; font: 500 1.15rem/1.5 var(--f-ar); text-align: left; transition: opacity 0.2s ease; }
+.row .sc { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; text-align: right; }
+.row .sc b { font: 500 1rem/1.2 var(--f-data); font-variant-numeric: tabular-nums; color: var(--tier); }
+.row .sc span { font-size: 0.75rem; color: var(--fg2); white-space: nowrap; }
+.row .bar { grid-column: 1 / -1; height: 4px; margin-top: 0.4rem; background: var(--s2); border-radius: 2px; overflow: hidden; }
+.row .bar i { display: block; height: 100%; background: var(--tier); border-radius: 2px; transition: width 0.3s ease; }
+.row.t-none .ar { opacity: 0.55; }
+.note { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--line); font-size: 0.8125rem; line-height: 1.55; color: var(--fg2); }
+
+/* stack marquee */
+.marq { overflow: hidden; background: var(--ink); color: var(--on-cobalt); border-bottom: 1px solid var(--line); }
+.marq-track { display: flex; width: max-content; }
+.marq-track ul { display: flex; margin: 0; padding: 0; list-style: none; }
+.marq li { display: flex; align-items: center; gap: 1.6rem; padding: 1.05rem 0 1.05rem 1.6rem; font: 600 1.2rem/1 var(--f-display); font-stretch: 90%; white-space: nowrap; }
+.marq li::after { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--sun); }
+
+/* work */
+.work { padding-block: 6.5rem 5rem; background: var(--paper); }
+.big { font-size: var(--t-h2); line-height: 0.95; font-weight: 800; font-stretch: 80%; letter-spacing: -0.035em; }
+.work .sect-note { margin-top: 1.25rem; max-width: 38rem; font-size: 1.125rem; color: var(--pg-ink-2); }
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.25rem; margin-top: 3.25rem; }
+.card { grid-column: span 4; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 1.1rem; padding: 1.75rem; border-radius: 22px; background: var(--s0); color: var(--fg); border: 1px solid var(--line); transition: transform 0.25s ease, border-color 0.25s ease; }
+.card:hover { transform: translateY(-4px); border-color: var(--fg2); }
+.card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.3s ease; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 185, 56, 0.14), transparent 62%); }
+.card:hover::before { opacity: 1; }
+.card > * { position: relative; }
+.c-grc { grid-column: span 8; }
+.c-clinic { grid-column: span 12; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr); gap: 2rem 3rem; align-items: start; }
+.c-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+.card h3 { font-size: var(--t-h3); line-height: 1; font-weight: 700; letter-spacing: -0.025em; }
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tags li { padding: 0.25rem 0.7rem; border-radius: 999px; border: 1px solid var(--line); font-size: 0.8125rem; color: var(--fg2); }
+.tags.built { margin-top: auto; }
+.tags.built li { color: var(--fg-soft); background: var(--s1); border-color: transparent; }
+.c-desc { color: var(--fg-soft); max-width: 44rem; }
+.c-note { font-size: 0.875rem; color: var(--fg2); }
+.mods { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.mods li { padding-top: 0.8rem; border-top: 1px solid var(--line); font-size: 0.9375rem; color: var(--fg2); }
+.mods strong { display: block; margin-bottom: 0.2rem; color: var(--fg); font-weight: 600; }
+.c-clinic .c-left { display: flex; flex-direction: column; gap: 1.1rem; min-height: 100%; }
+.st { margin: 0; }
+.st div { padding-block: 0.75rem; border-top: 1px solid var(--line); }
+.st dt { font-size: 0.8125rem; color: var(--fg2); margin-bottom: 0.4rem; }
+.st dd { margin: 0; }
+.st .tags li { color: var(--fg); background: var(--s1); border-color: transparent; }
+
+/* illustrations (inside dark cards) */
+.viz { margin: 0; }
+.viz-stage { background: var(--s1); border: 1px solid var(--line); border-radius: 14px; padding: 1.75rem 1rem; overflow: hidden; }
+.viz figcaption { margin-top: 0.6rem; font-size: 0.8125rem; color: var(--fg2); }
+
+.pipe { --dx: calc(3.5rem - 8px); --dy: 0px; display: flex; align-items: flex-start; justify-content: center; margin-inline: auto; }
+.pn { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.pn b { font-weight: 500; font-size: 0.875rem; text-align: center; color: var(--fg-soft); }
+.art { position: relative; overflow: hidden; width: 100%; max-width: 10rem; height: 6.75rem; background: var(--s0); border: 1px solid var(--line); border-radius: 10px; padding: 0.65rem; }
+.wire { flex: 0 0 3.5rem; height: 2px; margin-top: 3.3rem; background: var(--line); position: relative; }
+.wire::after, .hop::after { content: ""; position: absolute; left: 0; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--hi); opacity: 0; }
+.xl { display: grid; grid-template-columns: repeat(5, 1fr); grid-auto-rows: 1fr; gap: 3px; }
+.xl i { background: var(--s2); border-radius: 2px; }
+.xl i.f { background: var(--hi); opacity: 0.55; }
+.parse { display: flex; flex-direction: column; justify-content: space-between; }
+.parse span { display: block; height: 9px; border-radius: 2px; background: var(--s2); }
+.parse span:nth-child(1) { width: 92%; }
+.parse span:nth-child(2) { width: 64%; }
+.parse span:nth-child(3) { width: 80%; }
+.parse span:nth-child(4) { width: 50%; }
+.parse em { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--hi); opacity: 0; box-shadow: 0 0 12px var(--hi); }
+.dash { display: flex; align-items: flex-end; gap: 5px; }
+.dash span { flex: 1; height: var(--h); background: var(--hi); opacity: 0.9; border-radius: 2px 2px 0 0; transform-origin: bottom; }
+.slide { display: flex; flex-direction: column; gap: 7px; padding: 0.8rem 0.75rem; }
+.slide u { display: block; height: 7px; width: 55%; background: var(--fg2); opacity: 0.8; border-radius: 2px; text-decoration: none; }
+.slide .mini { flex: 1; display: flex; align-items: flex-end; gap: 4px; }
+.slide .mini span { flex: 1; background: var(--hi); opacity: 0.75; border-radius: 2px 2px 0 0; }
+.stage-art { display: grid; place-items: center; height: 4.5rem; font-weight: 600; font-size: 0.95rem; color: var(--fg); }
+.pipe.erp .wire { margin-top: 2.2rem; }
+.tick { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--hi); }
+.tick::after { content: ""; position: absolute; left: 0.37rem; top: 0.17rem; width: 0.28rem; height: 0.52rem; border: solid var(--on-hi); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+.conv { --dx: calc(3.5rem - 8px); --dy: 0px; display: flex; align-items: center; justify-content: center; }
+.vars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.vars li { min-width: 7.5rem; padding: 0.45rem 0.8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--s0); text-align: center; font-size: 0.9375rem; }
+.vars li[lang="ar"] { font-family: var(--f-ar); font-weight: 500; }
+.hop { flex: 0 0 3.5rem; height: 2px; background: var(--line); position: relative; }
+.keybox, .rec { padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--s0); text-align: center; }
+.keybox { border-color: var(--fg2); }
+.keybox code { display: block; font: 500 1.15rem/1 var(--f-data); color: var(--hi); }
+.keybox small, .rec small { display: block; margin-top: 0.35rem; font-size: 0.75rem; color: var(--fg2); }
+.rec span { font: 500 1.15rem/1.4 var(--f-ar); }
+.conv.v { --dx: 0px; --dy: calc(2.2rem - 8px); flex-direction: column; align-items: center; }
+.conv.v .hop { flex: 0 0 2.2rem; width: 2px; height: 2.2rem; }
+.conv.v .hop::after { left: -3px; top: 0; }
+.conv.v .vars { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+
+.count { display: grid; grid-template-columns: repeat(auto-fill, minmax(1.35rem, 1fr)); gap: 5px; margin-inline: auto; }
+.count i { aspect-ratio: 1; border-radius: 4px; background: var(--s2); border: 1px solid var(--line); }
+.count i.d { background: var(--hi); border-color: var(--hi); }
+.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 1.1rem; font-size: 0.8125rem; color: var(--fg2); }
+.legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.legend i { width: 0.8rem; height: 0.8rem; border-radius: 3px; background: var(--s2); border: 1px solid var(--line); }
+.legend i.d { background: var(--hi); border-color: var(--hi); }
+
+.chatwrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.75rem 2.5rem; align-items: start; }
+.chat { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+.chat li { max-width: 90%; padding: 0.6rem 0.9rem; border-radius: 16px; font-size: 0.9375rem; line-height: 1.4; }
+.chat .me { align-self: flex-end; background: var(--hi); color: var(--on-hi); border-bottom-right-radius: 4px; }
+.chat .bot { align-self: flex-start; background: var(--s2); color: var(--fg); border-bottom-left-radius: 4px; }
+.week { display: grid; grid-template-columns: 2.7rem repeat(5, minmax(0, 1fr)); gap: 4px; font-size: 0.75rem; }
+.week .h { padding-bottom: 0.2rem; text-align: center; color: var(--fg2); }
+.week .t { display: flex; align-items: center; color: var(--fg2); font-family: var(--f-data); }
+.week .c { height: 1.9rem; border-radius: 5px; background: var(--s2); }
+.week .c.x { background: var(--line); }
+.week .c.slot { display: grid; place-items: center; background: var(--hi); color: var(--on-hi); font-weight: 600; }
+
+/* background */
+.about { padding-block: 5.5rem 6.5rem; background: var(--paper); border-top: 1px solid var(--pg-rule); }
+.statement { max-width: 17ch; font-size: clamp(2.4rem, 6.4vw, 5.4rem); line-height: 0.95; font-weight: 800; font-stretch: 80%; letter-spacing: -0.035em; }
+.facts3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 2.5rem; margin: 4rem 0 0; }
+.facts3 div { padding-top: 1rem; border-top: 3px solid var(--ink); }
+.facts3 dt { font: 700 1.35rem/1.1 var(--f-display); font-stretch: 85%; letter-spacing: -0.02em; }
+.facts3 dd { margin: 0.6rem 0 0; max-width: 24rem; color: var(--pg-ink-2); }
+
+/* contact */
+.contact { position: relative; overflow: hidden; background: var(--cobalt); color: var(--on-cobalt); padding-top: 6.5rem; }
+.contact::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 72px 72px; -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 90%); mask-image: linear-gradient(to top, #000 10%, transparent 90%); }
+.contact .wrap { position: relative; }
+.contact .big { max-width: 15ch; }
+.contact .sub { margin-top: 1.5rem; max-width: 32rem; font-size: 1.25rem; color: rgba(241, 242, 236, 0.88); }
+.contact .cta { margin-top: 2rem; }
+.contact .url { margin-top: 1.1rem; font-family: var(--f-data); font-size: 0.9375rem; color: rgba(241, 242, 236, 0.8); overflow-wrap: anywhere; }
+.roles { position: relative; margin-top: 5rem; overflow: hidden; background: transparent; border-block: 1px solid rgba(255, 255, 255, 0.25); }
+.roles li { padding: 1.1rem 0 1.1rem 2.2rem; gap: 2.2rem; font-weight: 800; font-size: clamp(2.2rem, 6vw, 4.5rem); font-stretch: 80%; letter-spacing: -0.03em; color: transparent; -webkit-text-stroke: 1.5px rgba(241, 242, 236, 0.85); }
+.roles li::after { width: 0.7rem; height: 0.7rem; }
+.foot { position: relative; padding-block: 1.75rem 2.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; font-size: 0.875rem; color: rgba(241, 242, 236, 0.8); }
+
+/* scroll reveal: resting state is visible; JS only dims what is below the fold */
+.rv { transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.rv.pre { opacity: 0; transform: translateY(26px); }
+
+@media (max-width: 1000px) {
+  .hero { padding-block: 7rem 4rem; }
+  .hero-in { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .sun { width: 14rem; height: 14rem; right: -4.5rem; top: -4.5rem; }
+  .c-clinic { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .card, .c-grc, .c-clinic { grid-column: 1 / -1; }
+  .work { padding-block: 4.5rem 3.5rem; }
+  .facts3 { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; margin-top: 3rem; }
+  .about { padding-block: 4rem 4.5rem; }
+  .chatwrap { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 700px) {
+  .mods { grid-template-columns: minmax(0, 1fr); gap: 0.6rem; }
+  .pipe { --dx: 0px; --dy: calc(2.2rem - 8px); flex-direction: column; align-items: center; }
+  .pn { flex: none; width: 100%; }
+  .art { max-width: 13rem; }
+  .wire { flex: 0 0 2.2rem; width: 2px; height: 2.2rem; margin: 0 !important; }
+  .wire::after { left: -3px; top: 0; }
+  .conv { --dx: 0px; --dy: calc(2.2rem - 8px); flex-direction: column; align-items: center; }
+  .conv .hop { flex: 0 0 2.2rem; width: 2px; height: 2.2rem; }
+  .conv .hop::after { left: -3px; top: 0; }
+  .vars { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .card { padding: 1.4rem 1.2rem; }
+  .viz-stage { padding: 1.4rem 0.8rem; }
+}
+@media (min-width: 701px) {
+  .pipe.sm { --dx: calc(1.4rem - 8px); }
+  .pipe.sm .wire { flex: 0 0 1.4rem; margin-top: 2rem; }
+  .pipe.sm .stage-art { height: 4rem; font-size: 0.8125rem; }
+}
+@media (max-width: 560px) {
+  .nav a { padding: 0.5rem 0.65rem; }
+  .nav .hide-s { display: none; }
+  .panel { padding: 1.2rem 1rem 1rem; border-radius: 18px; }
+  .status { font-size: 0.8125rem; }
+  .sun { width: 10rem; height: 10rem; right: -3.5rem; top: -3.5rem; }
+}
+
+/* motion: only for viewers who have not asked for less */
+@media (prefers-reduced-motion: no-preference) {
+  .h1 .w > span { animation: wordUp 0.95s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(var(--n) * 80ms + 120ms); }
+  .status, .lede, .cta, .hero .panel { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+  .status { animation-delay: 0.05s; }
+  .lede { animation-delay: 0.55s; }
+  .cta { animation-delay: 0.68s; }
+  .hero .panel { animation-delay: 0.45s; }
+  .status i { animation: ping 2.2s infinite; }
+  .sun { animation: bob 9s ease-in-out infinite; }
+  .marq-track { animation: marq 42s linear infinite; }
+  .marq:hover .marq-track { animation-play-state: paused; }
+  .roles .marq-track { animation: marqR 55s linear infinite; }
+
+  .live .xl i { animation: cell 7s infinite; animation-delay: calc(var(--i) * 45ms); }
+  .live .wire.a::after { animation: dotA 7s infinite; }
+  .live .wire.b::after { animation: dotB 7s infinite; }
+  .live .wire.c::after { animation: dotC 7s infinite; }
+  .live .parse em { animation: scan 7s infinite; }
+  .live .dash span { animation: grow 7s infinite; animation-delay: calc(var(--r) * 60ms); }
+  .live .slide > *, .live .slide .mini span { animation: slideIn 7s infinite; }
+  .live .tick.t1 { animation: tk1 7s infinite; }
+  .live .tick.t2 { animation: tk2 7s infinite; }
+  .live .tick.t3 { animation: tk3 7s infinite; }
+  .live .vars li { animation: varOn 4.8s infinite; animation-delay: calc(var(--i) * 1.2s); }
+  .live .hop.h1::after { animation: hop4 4.8s infinite; }
+  .live .hop.h2::after { animation: hopEnd 4.8s infinite; }
+  .live .keybox { animation: keyP 4.8s infinite; }
+  .live .rec { animation: recOn 4.8s infinite; }
+  .live .count i { animation: tickOff 9s infinite; animation-delay: calc(var(--i) * 80ms); }
+  .live .chat li:nth-child(1) { animation: b1 12s infinite; }
+  .live .chat li:nth-child(2) { animation: b2 12s infinite; }
+  .live .chat li:nth-child(3) { animation: b3 12s infinite; }
+  .live .chat li:nth-child(4) { animation: b4 12s infinite; }
+  .live .week .slot { animation: slotOn 12s infinite; }
+}
+@keyframes wordUp { from { transform: translateY(108%); } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(255, 185, 56, 0.7); } 70%, 100% { box-shadow: 0 0 0 10px rgba(255, 185, 56, 0); } }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(14px); } }
+@keyframes marq { to { transform: translateX(-50%); } }
+@keyframes marqR { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+@keyframes cell { 0% { background: var(--s2); opacity: 1; } 6%, 40% { background: var(--hi); opacity: 0.85; } 55%, 100% { background: var(--s2); opacity: 1; } }
+@keyframes dotA { 0%, 12% { opacity: 0; transform: translate(0, 0); } 13% { opacity: 1; } 26% { opacity: 1; transform: translate(var(--dx), var(--dy)); } 27%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+@keyframes dotB { 0%, 42% { opacity: 0; transform: translate(0, 0); } 43% { opacity: 1; } 54% { opacity: 1; transform: translate(var(--dx), var(--dy)); } 55%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+@keyframes dotC { 0%, 68% { opacity: 0; transform: translate(0, 0); } 69% { opacity: 1; } 80% { opacity: 1; transform: translate(var(--dx), var(--dy)); } 81%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+@keyframes scan { 0%, 24% { opacity: 0; top: 0; } 25% { opacity: 1; top: 0; } 42% { opacity: 1; top: calc(100% - 2px); } 43%, 100% { opacity: 0; top: calc(100% - 2px); } }
+@keyframes grow { 0%, 50% { transform: scaleY(0.12); } 62%, 92% { transform: scaleY(1); } 100% { transform: scaleY(0.12); } }
+@keyframes slideIn { 0%, 76% { opacity: 0.15; transform: translateY(4px); } 86%, 92% { opacity: 1; transform: none; } 100% { opacity: 0.15; transform: translateY(4px); } }
+@keyframes tk1 { 0%, 4% { opacity: 0; transform: scale(0.4); } 9%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; transform: scale(0.4); } }
+@keyframes tk2 { 0%, 26% { opacity: 0; transform: scale(0.4); } 31%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; transform: scale(0.4); } }
+@keyframes tk3 { 0%, 54% { opacity: 0; transform: scale(0.4); } 59%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; transform: scale(0.4); } }
+@keyframes varOn { 0% { border-color: var(--line); background: var(--s0); } 6%, 20% { border-color: var(--hi); background: var(--s2); } 28%, 100% { border-color: var(--line); background: var(--s0); } }
+@keyframes hop4 {
+  0%, 25%, 50%, 75% { opacity: 0; transform: translate(0, 0); }
+  3%, 28%, 53%, 78% { opacity: 1; transform: translate(0, 0); }
+  20%, 45%, 70%, 95% { opacity: 1; transform: translate(var(--dx), var(--dy)); }
+  21%, 46%, 71%, 96% { opacity: 0; transform: translate(var(--dx), var(--dy)); }
+}
+@keyframes hopEnd { 0%, 86% { opacity: 0; transform: translate(0, 0); } 88% { opacity: 1; } 96% { opacity: 1; transform: translate(var(--dx), var(--dy)); } 97%, 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+@keyframes keyP {
+  0%, 8%, 20%, 33%, 45%, 58%, 70%, 83%, 95%, 100% { box-shadow: 0 0 0 0 transparent; border-color: var(--fg2); }
+  14%, 39%, 64%, 89% { box-shadow: 0 0 0 4px var(--s2); border-color: var(--hi); }
+}
+@keyframes recOn { 0%, 8% { border-color: var(--hi); } 20%, 90% { border-color: var(--line); } 98%, 100% { border-color: var(--hi); } }
+@keyframes tickOff {
+  0% { background: var(--s2); border-color: var(--line); transform: scale(1); }
+  3% { background: var(--hi); border-color: var(--hi); transform: scale(1.2); }
+  6%, 80% { background: var(--hi); border-color: var(--hi); transform: scale(1); }
+  90%, 100% { background: var(--s2); border-color: var(--line); transform: scale(1); }
+}
+@keyframes b1 { 0%, 2% { opacity: 0; transform: translateY(8px) scale(0.96); } 6%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: translateY(8px) scale(0.96); } }
+@keyframes b2 { 0%, 16% { opacity: 0; transform: translateY(8px) scale(0.96); } 20%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: translateY(8px) scale(0.96); } }
+@keyframes b3 { 0%, 36% { opacity: 0; transform: translateY(8px) scale(0.96); } 40%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: translateY(8px) scale(0.96); } }
+@keyframes b4 { 0%, 54% { opacity: 0; transform: translateY(8px) scale(0.96); } 58%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: translateY(8px) scale(0.96); } }
+@keyframes slotOn { 0%, 62% { background: var(--s2); color: transparent; } 68%, 92% { background: var(--hi); color: var(--on-hi); } 98%, 100% { background: var(--s2); color: transparent; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marq { overflow-x: auto; }
+  .marq-track > ul[aria-hidden="true"] { display: none; }
+  .row .bar i, .btn, .card, .rv { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="prog" aria-hidden="true"><i></i></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="logo" href="#top" aria-label="Omar Alakkad, top of page">OA</a>
+  <a href="#work">Work</a>
+  <a class="hide-s" href="#background">Background</a>
+  <a href="#contact">Contact</a>
+  <a class="nav-cta" href="https://www.linkedin.com/in/omar-alakkad/">LinkedIn</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="status"><i></i>Open to roles in Kuwait or remote</p>
+      <h1 class="h1">
+        <span class="w"><span style="--n:0">Software</span></span>
+        <span class="w"><span style="--n:1">for</span></span>
+        <span class="w"><span style="--n:2">audit,</span></span>
+        <span class="w"><span style="--n:3">risk</span></span>
+        <span class="w"><span style="--n:4">and</span></span>
+        <span class="w"><span style="--n:5">compliance</span></span>
+        <span class="w"><span style="--n:6">teams.</span></span>
+      </h1>
+      <p class="lede">I'm Omar Alakkad, a software developer at Boubyan Consulting Company in Kuwait. I build risk and audit platforms, AML/CFT screening, ERP and asset management, and I take each one from database to dashboard.</p>
+      <div class="cta">
+        <a class="btn solid" href="#work">See the work</a>
+        <a class="btn line" href="https://www.linkedin.com/in/omar-alakkad/">LinkedIn</a>
+      </div>
+    </div>
+
+    <aside class="panel dk" id="screen" aria-labelledby="screen-h">
+      <h2 id="screen-h">Screen a name</h2>
+      <p class="intro">The AML/CFT platform I work on has to recognise one person across many spellings. This is a small illustration of that problem. Type a name in English or Arabic, or pick an example.</p>
+
+      <label for="q">Name to screen</label>
+      <input id="q" type="text" dir="auto" value="Mohamad Ahmed Al-Ali" autocomplete="off" spellcheck="false">
+
+      <div class="chips" id="chips">
+        <button type="button" class="chip" data-q="Mohamad Ahmed Al-Ali">Spelling variant</button>
+        <button type="button" class="chip" data-q="Ali Ahmed Mohammed">Different order</button>
+        <button type="button" class="chip" data-q="Abdallah Salim Al-Khaledi">Transliteration</button>
+        <button type="button" class="chip" data-q="يوسف المطيري">Partial name</button>
+        <button type="button" class="chip" data-q="Sara Johnson">No match</button>
+      </div>
+
+      <div class="keys" id="keys-wrap"><span>Compared as</span><span id="keys"></span></div>
+      <p class="sum" id="sum" aria-live="off"></p>
+
+      <ul class="results" id="results"></ul>
+
+      <p class="note">The names are invented. Each name is reduced to a rough consonant skeleton, so Mohammed, Mohamad and محمد meet in the same place. This is a simplified illustration, not the production engine. Similar-sounding names can score close, which is why screening hits need human review.</p>
+    </aside>
+  </div>
+</header>
+
+<div class="marq" aria-label="Technologies I work with">
+  <div class="marq-track">
+    <ul>
+      <li>Next.js 14</li><li>React</li><li>TypeScript</li><li>FastAPI</li><li>Python</li><li>PostgreSQL</li><li>Docker Compose</li><li>Claude API</li><li>Arabic name matching</li><li>GRC</li><li>AML/CFT</li><li>ERP</li>
+    </ul>
+  </div>
+</div>
+
+<main>
+  <section class="work" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <h2 class="big rv" id="work-h">Systems I've built and run</h2>
+      <p class="sect-note rv">BCC and client systems are internal, so each one is shown as a diagram of how it works instead of a screenshot.</p>
+
+      <div class="bento">
+
+        <article class="card c-grc dk rv">
+          <div class="c-head">
+            <h3>GRC Hub</h3>
+            <ul class="tags"><li>Boubyan Consulting Company</li><li>Full stack developer</li></ul>
+          </div>
+          <p class="c-desc">BCC's governance, risk and compliance platform. It began as an internal audit tracker and has grown into a multi-module system.</p>
+          <figure class="viz">
+            <div class="viz-stage">
+              <div class="pipe" role="img" aria-label="Diagram: an Excel form is read by a parser, shown on a chart dashboard, and exported to PowerPoint.">
+                <div class="pn"><div class="art xl" data-cells="20"></div><b>Excel form</b></div>
+                <div class="wire a"></div>
+                <div class="pn"><div class="art parse"><span></span><span></span><span></span><span></span><em></em></div><b>Parser</b></div>
+                <div class="wire b"></div>
+                <div class="pn"><div class="art dash"><span style="--h:42%;--r:0"></span><span style="--h:68%;--r:1"></span><span style="--h:54%;--r:2"></span><span style="--h:86%;--r:3"></span><span style="--h:62%;--r:4"></span><span style="--h:74%;--r:5"></span></div><b>Chart dashboard</b></div>
+                <div class="wire c"></div>
+                <div class="pn"><div class="art slide"><u></u><div class="mini"><span style="height:45%"></span><span style="height:75%"></span><span style="height:58%"></span><span style="height:90%"></span></div></div><b>PowerPoint export</b></div>
+              </div>
+            </div>
+            <figcaption>Illustration of how the Financials module turns an Excel form into a dashboard and a PowerPoint export.</figcaption>
+          </figure>
+          <ul class="mods">
+            <li><strong>Audit Tracker</strong>Where the platform started.</li>
+            <li><strong>Risk System</strong>Risk management alongside the audits.</li>
+            <li><strong>Financials</strong>Takes a standard Excel form and returns a chart dashboard and a PowerPoint export.</li>
+          </ul>
+          <p class="c-note">Parser bugs I traced here came from cached formula values and column indexing.</p>
+          <ul class="tags built"><li>Next.js 14</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker Compose</li></ul>
+        </article>
+
+        <article class="card c-aml dk rv">
+          <div class="c-head">
+            <h3>AML/CFT platform</h3>
+            <ul class="tags"><li>BCC</li><li>Developer</li></ul>
+          </div>
+          <p class="c-desc">A compliance platform for anti-money laundering and counter-terrorist financing work, with a fuzzy Arabic name-matching engine at its core.</p>
+          <p class="c-desc">Arabic names are hard to match because the same person can appear with different spellings, transliterations and name order. The <a href="#screen" style="color:var(--hi)">demo at the top of this page</a> shows the idea in miniature.</p>
+          <figure class="viz">
+            <div class="viz-stage">
+              <div class="conv v" role="img" aria-label="Diagram: four spellings of one name reduce to the same key, which points to one watchlist entry.">
+                <ul class="vars">
+                  <li style="--i:0">Mohammed</li>
+                  <li style="--i:1">Mohamad</li>
+                  <li style="--i:2" lang="ar" dir="rtl">محمد</li>
+                  <li style="--i:3">Muhammad</li>
+                </ul>
+                <div class="hop h1"></div>
+                <div class="keybox"><code>mhmd</code><small>one key</small></div>
+                <div class="hop h2"></div>
+                <div class="rec"><span lang="ar" dir="rtl">محمد أحمد العلي</span><small>Watchlist entry</small></div>
+              </div>
+            </div>
+            <figcaption>Illustration of the idea. The names are invented.</figcaption>
+          </figure>
+          <ul class="tags built"><li>Arabic name matching</li></ul>
+        </article>
+
+        <article class="card c-kasco dk rv">
+          <div class="c-head">
+            <h3>Fixed assets management</h3>
+          </div>
+          <ul class="tags"><li>Kuwait Aviation Services Company (KASCO)</li></ul>
+          <p class="c-desc">A fixed assets management system that I built and then used to run a full physical asset count at KASCO.</p>
+          <figure class="viz">
+            <div class="viz-stage">
+              <div class="count" id="count" role="img" aria-label="Diagram: squares representing assets are checked off one by one during a physical count."></div>
+              <div class="legend"><span><i class="d"></i>Counted</span><span><i></i>Not yet counted</span></div>
+            </div>
+            <figcaption>Illustration of a physical count. Each square is an asset, checked off against the register.</figcaption>
+          </figure>
+          <ul class="tags built"><li>Built the system and ran the count</li></ul>
+        </article>
+
+        <article class="card c-erp dk rv">
+          <div class="c-head">
+            <h3>ERP system</h3>
+          </div>
+          <ul class="tags"><li>Boubyan Consulting Company</li><li>Developer</li></ul>
+          <p class="c-desc">An ERP system in BCC's product portfolio, covering business operations, finance and workflow.</p>
+          <figure class="viz">
+            <div class="viz-stage">
+              <div class="pipe erp sm" role="img" aria-label="Diagram: a record moves from operations through workflow to finance.">
+                <div class="pn"><div class="art stage-art">Operations<span class="tick t1"></span></div></div>
+                <div class="wire a"></div>
+                <div class="pn"><div class="art stage-art">Workflow<span class="tick t2"></span></div></div>
+                <div class="wire b"></div>
+                <div class="pn"><div class="art stage-art">Finance<span class="tick t3"></span></div></div>
+              </div>
+            </div>
+            <figcaption>Illustration of a record moving from operations through workflow to finance.</figcaption>
+          </figure>
+        </article>
+
+        <article class="card c-stack dk rv">
+          <div class="c-head">
+            <h3>Stack</h3>
+          </div>
+          <dl class="st">
+            <div><dt>Interface</dt><dd><ul class="tags"><li>Next.js 14</li><li>React</li><li>TypeScript</li></ul></dd></div>
+            <div><dt>Services</dt><dd><ul class="tags"><li>FastAPI</li><li>Python</li></ul></dd></div>
+            <div><dt>Data</dt><dd><ul class="tags"><li>PostgreSQL</li></ul></dd></div>
+            <div><dt>Shipping</dt><dd><ul class="tags"><li>Docker Compose</li></ul></dd></div>
+            <div><dt>AI and integrations</dt><dd><ul class="tags"><li>Claude API agent loop</li><li>WhatsApp</li><li>Google Calendar</li><li>Gmail</li></ul></dd></div>
+          </dl>
+          <p class="c-note">ClinicAssist uses the same stack as GRC Hub.</p>
+        </article>
+
+        <article class="card c-clinic dk rv">
+          <div class="c-left">
+            <div class="c-head">
+              <h3>ClinicAssist</h3>
+              <ul class="tags"><li>Personal project</li></ul>
+            </div>
+            <p class="c-desc">A WhatsApp-based AI appointment booking system for dental and medical clinics. A Claude API agent loop handles the conversation, Google Calendar and Gmail integrations keep the clinic's schedule and mail in step, and a Next.js admin dashboard gives staff control.</p>
+            <p class="c-desc">It is built multi-tenant-ready, so one deployment can serve many clinics.</p>
+            <ul class="tags built"><li>Designer and developer</li><li>Claude API</li><li>Next.js</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker Compose</li></ul>
+          </div>
+          <figure class="viz">
+            <div class="viz-stage">
+              <div class="chatwrap">
+                <ul class="chat" aria-label="Sample booking conversation">
+                  <li class="me">Hi, can I book a cleaning this week?</li>
+                  <li class="bot">Of course. I have Wednesday at 14:00 or Thursday at 10:00.</li>
+                  <li class="me">Thursday works.</li>
+                  <li class="bot">Booked for Thursday at 10:00. I've added it to the clinic calendar.</li>
+                </ul>
+                <div class="week" role="img" aria-label="Clinic calendar with Thursday at 10:00 booked.">
+                  <span></span><span class="h">Sun</span><span class="h">Mon</span><span class="h">Tue</span><span class="h">Wed</span><span class="h">Thu</span>
+                  <span class="t">09:00</span><i class="c x"></i><i class="c"></i><i class="c"></i><i class="c x"></i><i class="c"></i>
+                  <span class="t">10:00</span><i class="c"></i><i class="c x"></i><i class="c"></i><i class="c"></i><i class="c slot">Booked</i>
+                  <span class="t">11:00</span><i class="c"></i><i class="c"></i><i class="c x"></i><i class="c"></i><i class="c x"></i>
+                  <span class="t">14:00</span><i class="c x"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i>
+                </div>
+              </div>
+            </div>
+            <figcaption>Illustration of a sample booking conversation and the calendar it updates. The patient and clinic are invented.</figcaption>
+          </figure>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="background" aria-labelledby="bg-h">
+    <div class="wrap">
+      <h2 class="statement rv" id="bg-h">End to end, from the database to the dashboard.</h2>
+      <dl class="facts3">
+        <div class="rv"><dt>Studied</dt><dd>Software Engineering at Nişantaşı University.</dd></div>
+        <div class="rv"><dt>Working</dt><dd>Developer at Boubyan Consulting Company in Kuwait since 2025, covering backend, frontend, database and deployment.</dd></div>
+        <div class="rv"><dt>Learning</dt><dd>Backend engineering, application security, and applying AI to compliance work.</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="big rv">Need a developer who knows compliance software?</h2>
+    <p class="sub rv">I'm open to full stack, GRC technology, AI engineering and ERP roles, in Kuwait or remote. LinkedIn is the best way to reach me.</p>
+    <div class="cta rv">
+      <a class="btn solid" href="https://www.linkedin.com/in/omar-alakkad/">Message me on LinkedIn</a>
+    </div>
+    <p class="url rv">linkedin.com/in/omar-alakkad</p>
+  </div>
+  <div class="roles marq" aria-hidden="true">
+    <div class="marq-track">
+      <ul><li>Full stack</li><li>GRC technology</li><li>AI engineering</li><li>ERP</li></ul>
+    </div>
+  </div>
+  <div class="wrap foot"><span>Omar Alakkad</span><span>Kuwait</span></div>
+</footer>
+
+<script>
+/*MATCH-START*/
+var AR_MAP = {
+  'ب':'b','ت':'t','ث':'s','ج':'j','ح':'h','خ':'x','د':'d','ذ':'z','ر':'r','ز':'z',
+  'س':'s','ش':'c','ص':'s','ض':'d','ط':'t','ظ':'z','غ':'g','ف':'f','ق':'q','ك':'k',
+  'ل':'l','م':'m','ن':'n','ه':'h'
+};
+var LAT_MAP = { b:'b',c:'k',d:'d',f:'f',g:'j',h:'h',j:'j',k:'k',l:'l',m:'m',n:'n',p:'b',q:'q',r:'r',s:'s',t:'t',v:'f',x:'x',z:'z' };
+var AR_PARTICLES = ['بن','ابن','بنت'];
+var LAT_PARTICLES = ['al','el','bin','ibn','bint','ben'];
+var LAT_ABD = ['abd','abdul','abdel','abdal','abdu'];
+
+function collapse(s) { return s.replace(/(.)\1+/g, '$1'); }
+
+function cleanAr(p) {
+  return p.replace(/[ً-ٰٟـ]/g, '')
+    .replace(/[أإآٱ]/g, 'ا')
+    .replace(/ى/g, 'ي')
+    .replace(/ة/g, 'ه')
+    .replace(/ؤ/g, 'و')
+    .replace(/ئ/g, 'ي')
+    .replace(/[^ء-ي]/g, '');
+}
+function cleanLat(p) {
+  return p.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z]/g, '');
+}
+
+function arSkeleton(w) {
+  var out = '';
+  for (var i = 0; i < w.length; i++) {
+    var ch = w[i];
+    if (AR_MAP[ch]) out += AR_MAP[ch];
+    else if (i === 0 && ch === 'ي') out += 'y';
+    else if (i === 0 && ch === 'و') out += 'w';
+  }
+  return collapse(out);
+}
+
+function latSkeleton(w) {
+  w = w.replace(/kh/g, 'X').replace(/sh/g, 'C').replace(/th/g, 'S').replace(/dh/g, 'Z')
+       .replace(/gh/g, 'G').replace(/ph/g, 'f').replace(/ck/g, 'k');
+  var out = '';
+  for (var i = 0; i < w.length; i++) {
+    var ch = w[i];
+    if ('XCSZG'.indexOf(ch) > -1) { out += ch.toLowerCase(); continue; }
+    if (ch === 'y' || ch === 'w') { if (i === 0) out += ch; continue; }
+    if (LAT_MAP[ch]) out += LAT_MAP[ch];
+  }
+  return collapse(out);
+}
+
+function nameKeys(raw) {
+  var parts = raw.split(/[\s\-_.,،;:]+/).map(function (p) { return p.replace(/['’`"]/g, ''); }).filter(Boolean);
+  var toks = [];
+  for (var i = 0; i < parts.length; i++) {
+    var p = parts[i];
+    if (/[؀-ۿ]/.test(p)) {
+      p = cleanAr(p);
+      if (!p || AR_PARTICLES.indexOf(p) > -1) continue;
+      if (p === 'عبد' && i + 1 < parts.length) {
+        var nx = cleanAr(parts[i + 1]);
+        if (nx) { p = p + nx; i++; }
+      }
+      if (p.indexOf('ال') === 0 && p.length > 3) p = p.slice(2);
+      toks.push(arSkeleton(p));
+    } else {
+      p = cleanLat(p);
+      if (!p || LAT_PARTICLES.indexOf(p) > -1) continue;
+      if (LAT_ABD.indexOf(p) > -1 && i + 1 < parts.length) {
+        var nl = cleanLat(parts[i + 1]);
+        if (nl) { p = p + nl; i++; }
+      }
+      toks.push(latSkeleton(p));
+    }
+  }
+  return toks.filter(Boolean);
+}
+
+function lev(a, b) {
+  var prev = [], cur = [], i, j;
+  for (j = 0; j <= b.length; j++) prev[j] = j;
+  for (i = 1; i <= a.length; i++) {
+    cur = [i];
+    for (j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    }
+    prev = cur;
+  }
+  return prev[b.length];
+}
+function tokSim(a, b) {
+  var m = Math.max(a.length, b.length);
+  return m ? 1 - lev(a, b) / m : 0;
+}
+function scoreNames(q, c) {
+  if (!q.length || !c.length) return 0;
+  var pairs = [];
+  q.forEach(function (x, i) { c.forEach(function (y, j) { pairs.push([tokSim(x, y), i, j]); }); });
+  pairs.sort(function (a, b) { return b[0] - a[0]; });
+  var ui = {}, uj = {}, sum = 0;
+  pairs.forEach(function (p) {
+    if (ui[p[1]] || uj[p[2]]) return;
+    ui[p[1]] = true; uj[p[2]] = true; sum += p[0];
+  });
+  return sum / Math.max(q.length, c.length);
+}
+/*MATCH-END*/
+
+(function () {
+  /* ---------- name screening demo ---------- */
+  var LIST = [
+    { ar: 'محمد أحمد العلي', en: 'Mohammed Ahmed Al-Ali' },
+    { ar: 'عبدالله سالم الخالدي', en: 'Abdullah Salem Al-Khaledi' },
+    { ar: 'يوسف خالد المطيري', en: 'Yousef Khaled Al-Mutairi' },
+    { ar: 'فاطمة حسن الرشيد', en: 'Fatima Hassan Al-Rasheed' },
+    { ar: 'أحمد ماجد الشمري', en: 'Ahmad Majed Al-Shammari' },
+    { ar: 'خالد ناصر العنزي', en: 'Khaled Nasser Al-Anazi' }
+  ];
+  LIST.forEach(function (e) { e.keys = nameKeys(e.ar); });
+
+  var q = document.getElementById('q');
+  var keysEl = document.getElementById('keys');
+  var sumEl = document.getElementById('sum');
+  var resEl = document.getElementById('results');
+  var panel = document.getElementById('screen');
+
+  function tier(s) { return s >= 0.85 ? 'strong' : s >= 0.6 ? 'possible' : 'none'; }
+  var LABEL = { strong: 'Strong match', possible: 'Possible match', none: 'No match' };
+
+  var rows = LIST.map(function (e) {
+    var li = document.createElement('li');
+    li.className = 'row t-none';
+    var who = document.createElement('div'); who.className = 'who';
+    var en = document.createElement('span'); en.className = 'en'; en.textContent = e.en;
+    var ar = document.createElement('span'); ar.className = 'ar'; ar.setAttribute('lang', 'ar'); ar.setAttribute('dir', 'rtl'); ar.textContent = e.ar;
+    who.appendChild(en); who.appendChild(ar);
+    var sc = document.createElement('div'); sc.className = 'sc';
+    var b = document.createElement('b'); var sp = document.createElement('span');
+    sc.appendChild(b); sc.appendChild(sp);
+    var bar = document.createElement('div'); bar.className = 'bar';
+    var fill = document.createElement('i'); bar.appendChild(fill);
+    li.appendChild(who); li.appendChild(sc); li.appendChild(bar);
+    resEl.appendChild(li);
+    return { e: e, li: li, b: b, sp: sp, fill: fill, s: 0 };
+  });
+
+  function render() {
+    var k = nameKeys(q.value);
+    keysEl.textContent = '';
+    k.forEach(function (t) {
+      var c = document.createElement('code');
+      c.textContent = t;
+      keysEl.appendChild(c);
+      keysEl.appendChild(document.createTextNode(' '));
+    });
+    rows.forEach(function (r) { r.s = scoreNames(k, r.e.keys); });
+    var sorted = rows.slice().sort(function (a, b) { return b.s - a.s; });
+    sorted.forEach(function (r, idx) {
+      var t = k.length ? tier(r.s) : 'none';
+      var pct = k.length ? Math.round(r.s * 100) : 0;
+      r.li.className = 'row t-' + t;
+      r.li.style.order = idx;
+      r.b.textContent = pct + '%';
+      r.sp.textContent = k.length ? LABEL[t] : 'Waiting for a name';
+      r.fill.style.width = pct + '%';
+    });
+    if (!k.length) {
+      sumEl.textContent = 'Type a name to see how it compares with the six entries below.';
+    } else {
+      var top = sorted[0], tt = tier(top.s);
+      sumEl.textContent = tt === 'none'
+        ? 'No entry is close to this name.'
+        : 'Closest entry: ' + top.e.en + ', ' + Math.round(top.s * 100) + '%, ' + LABEL[tt].toLowerCase() + '.';
+    }
+  }
+
+  q.addEventListener('input', render);
+  document.getElementById('chips').addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('button[data-q]') : null;
+    if (!btn) return;
+    q.value = btn.getAttribute('data-q');
+    render();
+  });
+  render();
+
+  /* the demo types for itself until someone touches it */
+  var auto = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var seq = ['Ali Ahmed Mohammed', 'Abdallah Salim Al-Khaledi', 'يوسف المطيري', 'Sara Johnson', 'Mohamad Ahmed Al-Ali'];
+  var si = 0, timer = null, panelVisible = true;
+  function later(ms, fn) { timer = setTimeout(fn, ms); }
+  function stopAuto() {
+    if (!auto) return;
+    auto = false;
+    clearTimeout(timer);
+    sumEl.setAttribute('aria-live', 'polite');
+  }
+  function typeIn(t, i) {
+    if (!auto) return;
+    if (i <= t.length) { q.value = t.slice(0, i); render(); later(i === 0 ? 300 : 70, function () { typeIn(t, i + 1); }); }
+    else later(2400, nextName);
+  }
+  function nextName() {
+    if (!auto) return;
+    if (!panelVisible) { later(1000, nextName); return; }
+    var target = seq[si % seq.length]; si++;
+    (function erase() {
+      if (!auto) return;
+      if (q.value.length > 0) { q.value = q.value.slice(0, -2); render(); later(20, erase); }
+      else typeIn(target, 0);
+    })();
+  }
+  ['pointerdown', 'keydown', 'focusin'].forEach(function (n) { panel.addEventListener(n, stopAuto); });
+  if (auto) later(4200, nextName);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { panelVisible = es[0].isIntersecting; }).observe(panel);
+  }
+
+  /* ---------- illustrations ---------- */
+  document.querySelectorAll('[data-cells]').forEach(function (el) {
+    var filled = [1, 2, 3, 6, 7, 8, 11, 12, 16, 17];
+    for (var n = 0; n < +el.getAttribute('data-cells'); n++) {
+      var c = document.createElement('i');
+      c.style.setProperty('--i', n);
+      if (filled.indexOf(n) > -1) c.className = 'f';
+      el.appendChild(c);
+    }
+  });
+  var count = document.getElementById('count');
+  for (var n = 0; n < 72; n++) {
+    var t = document.createElement('i');
+    t.style.setProperty('--i', n);
+    if (n < 54) t.className = 'd';
+    count.appendChild(t);
+  }
+  var figs = document.querySelectorAll('.viz');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('live', e.isIntersecting); });
+    }, { threshold: 0.25 });
+    figs.forEach(function (f) { io.observe(f); });
+  } else {
+    figs.forEach(function (f) { f.classList.add('live'); });
+  }
+
+  /* ---------- marquees: duplicate the list so the loop is seamless ---------- */
+  document.querySelectorAll('.marq-track').forEach(function (track) {
+    var g = track.firstElementChild;
+    var c = g.cloneNode(true);
+    c.setAttribute('aria-hidden', 'true');
+    track.appendChild(c);
+  });
+
+  /* ---------- card spotlight ---------- */
+  document.querySelectorAll('.card').forEach(function (card) {
+    card.addEventListener('pointermove', function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* ---------- scroll reveal: only things below the fold start dimmed, with a failsafe ---------- */
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rv = document.querySelectorAll('.rv');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.remove('pre'); rio.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    rv.forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pre'); rio.observe(el); }
+    });
+    setTimeout(function () { rv.forEach(function (el) { el.classList.remove('pre'); }); }, 6000);
+  }
+
+  /* ---------- reading progress ---------- */
+  var prog = document.querySelector('.prog i');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (window.pageYOffset || h.scrollTop) / max : 0;
+    prog.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
