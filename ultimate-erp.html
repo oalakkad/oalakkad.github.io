@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ultimate ERP: case study by Omar Alakkad</title>
+<meta name="description" content="Ultimate ERP is a multi-tenant, bilingual (English and Arabic) ERP for audit, risk and GRC firms: 20 modules, a mobile app, database-enforced company isolation and 450+ automated tests.">
+<meta name="theme-color" content="#f3f0fb">
+<meta property="og:title" content="Ultimate ERP: case study by Omar Alakkad">
+<meta property="og:description" content="A multi-tenant, bilingual ERP for audit, risk and GRC firms. 20 modules, a mobile app and 450+ automated tests.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Readex+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wall" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <div class="glass">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"></span>Omar Alakkad</a>
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="ultimate-erp.html" aria-current="page">Ultimate ERP</a></li>
+        <li><a href="./#work">Other work</a></li>
+        <li><a href="./#contact">Contact</a></li>
+      </ul>
+      <a class="btn solid sm" href="https://www.linkedin.com/in/omar-alakkad/">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<header class="cs-hero">
+  <div class="wrap">
+    <div class="enter">
+      <span class="pill">Case study</span>
+      <h1 class="display">Ultimate ERP</h1>
+      <p class="lede">A multi-tenant ERP for audit, risk and GRC firms, in English and Arabic with full right-to-left layouts. It handles the whole path from a signed engagement letter to a paid invoice, and keeps each company's data apart inside the database.</p>
+      <div class="repo">
+        <a class="btn solid" href="https://github.com/oalakkad/ultimate-erp">View the code on GitHub</a>
+        <a class="btn soft" href="#built-to-be-trusted">How it stays safe</a>
+        <ul class="chips" aria-label="Main technologies"><li>React 19</li><li>NestJS</li><li>PostgreSQL 18</li><li>Expo</li><li>Docker</li></ul>
+      </div>
+    </div>
+
+    <dl class="stat-strip">
+      <div class="stat lilac"><b>20</b><span>modules, from clients to payroll</span></div>
+      <div class="stat mint"><b>450+</b><span>automated tests against a real database</span></div>
+      <div class="stat sky"><b>40</b><span>database migrations</span></div>
+      <div class="stat butter"><b>2 million</b><span>time entries in the load test</span></div>
+      <div class="stat blush"><b>EN + AR</b><span>full right-to-left layouts, light and dark</span></div>
+    </dl>
+
+    <div class="hero-shots">
+      <figure class="fig"><div class="shot"><img src="shots/ui-stats-en-light.webp" width="1800" height="443" alt="Ultimate ERP stat tiles in English: invoiced, outstanding, collected and approved hours in KWD with three decimals, and an engagement budget bar."></div><figcaption>Key figures in English. Money is shown in KWD with three decimals.</figcaption></figure>
+      <figure class="fig"><div class="shot"><img src="shots/ui-stats-ar-light.webp" width="1800" height="443" alt="The same screen in Arabic, mirrored right to left."></div><figcaption>The same screen in Arabic. The layout mirrors, the numbers stay readable.</figcaption></figure>
+    </div>
+    <p class="muted" style="margin-top:0.8rem">Interface screenshots use the example data from the product's design-system gallery, not a real company.</p>
+  </div>
+</header>
+
+<section aria-labelledby="what-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display" id="what-h">One system for the whole engagement</h2>
+      <p class="sub">An audit or advisory firm sells hours against a budget. Ultimate ERP follows that money and time from the first client record to the final payment, so partners can see where each engagement stands without asking around.</p>
+    </div>
+    <div class="mod-groups">
+      <div class="mod-group g-lilac">
+        <h3>Win and deliver work</h3>
+        <p>From the first client to the finished engagement.</p>
+        <ul><li>Clients <small>and activity timeline</small></li><li>Contracts and engagement letters <small>bilingual, six-step wizard, PDF</small></li><li>Projects and budgets <small>numbered revisions, never edited in place</small></li><li>Tasks <small>concurrency-safe hour allocation</small></li></ul>
+      </div>
+      <div class="mod-group g-sky">
+        <h3>Track time</h3>
+        <p>Hours people can trust.</p>
+        <ul><li>Timesheets and timers</li><li>Approval by the project's manager <small>nobody approves their own</small></li><li>Locked once approved, reopened with a reason</li></ul>
+      </div>
+      <div class="mod-group g-mint">
+        <h3>Look after people</h3>
+        <p>HR with the right doors closed.</p>
+        <ul><li>Employees and teams</li><li>Leave <small>balances as a ledger</small></li><li>Attendance <small>rotating signed QR codes</small></li><li>Payroll <small>test-only until rules are verified</small></li></ul>
+      </div>
+      <div class="mod-group g-butter">
+        <h3>Get paid</h3>
+        <p>Money, handled carefully.</p>
+        <ul><li>Invoicing and payments</li><li>Expenses <small>claims, approvals, re-billing</small></li><li>Receivables aging</li><li>Reports <small>utilization, profitability, revenue</small></li></ul>
+      </div>
+      <div class="mod-group g-blush">
+        <h3>Run the platform</h3>
+        <p>What every other module stands on.</p>
+        <ul><li>Accounts with two-factor sign-in</li><li>Roles and permissions</li><li>Append-only audit log</li><li>Notifications and announcements</li><li>File storage with virus scanning</li><li>Founder console <small>directory only, no business data</small></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tour" aria-labelledby="tour-h" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display" id="tour-h">Take the tour</h2>
+      <p class="sub">Screens from the running product, built on the demo company Al Noor Audit &amp; Advisory.</p>
+    </div>
+    <div class="tour-tabs" id="tour-tabs" role="tablist" aria-label="Product screens"></div>
+    <figure class="tour-stage" id="tour-stage"></figure>
+  </div>
+</section>
+
+<section id="built-to-be-trusted" aria-labelledby="trust-h">
+  <div class="wrap two wide-l">
+    <div>
+      <div class="sec-head">
+        <h2 class="display" id="trust-h">Built so one firm can never see another's data</h2>
+      </div>
+      <div class="prose">
+        <p>An ERP that serves many companies has one job it cannot get wrong: <strong>company A must never read company B's data</strong>. Checks in application code are not enough, because one forgotten check is a breach. So the rule lives in the database too.</p>
+        <p>Every request is tied to a company by its address, never by an ID the browser sends. The database then refuses any row that belongs to another company, even if the application code asks for it.</p>
+      </div>
+      <ul class="checks" style="margin-top:1.4rem">
+        <li><strong>Row-level security is forced</strong> on every company table, with three database roles for migrating, serving and platform work.</li>
+        <li><strong>A cross-company test suite</strong> proves the isolation, and a guard fails the build when a new table is not covered.</li>
+        <li><strong>Two-factor sign-in is required</strong> for sensitive roles such as Owner, CEO, payroll and exports.</li>
+        <li><strong>Private HR details are encrypted</strong> with a separate key, and uploads are virus-scanned before anyone can download them.</li>
+        <li><strong>The audit log is append-only</strong>, enforced by database triggers rather than by good behaviour.</li>
+        <li><strong>Money never touches a float.</strong> Amounts are exact decimals with three places, and travel as strings.</li>
+      </ul>
+    </div>
+    <div class="glass iso" role="img" aria-label="Diagram: a request resolves its company from the address, the application sets the company for the transaction, and PostgreSQL row-level security keeps company A and company B apart.">
+      <div class="iso-flow">
+        <div class="iso-step">Request<small>alnoor.example.com</small></div>
+        <div class="iso-step">Company by address<small>never by an ID from the client</small></div>
+        <div class="iso-step">Company set for the transaction<small>one place in the code</small></div>
+        <div class="iso-step">PostgreSQL<small>forced row-level security</small></div>
+      </div>
+      <div class="tenants">
+        <div class="tenant a"><b>Company A</b><div class="rows"><i></i><i></i><i></i></div></div>
+        <div class="tenant b"><b>Company B</b><div class="rows"><i></i><i></i><i></i></div></div>
+        <div class="wall-label">The database refuses reads and writes across this line</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="rtl-h">
+  <div class="wrap two">
+    <div>
+      <div class="sec-head">
+        <h2 class="display" id="rtl-h">English and Arabic are both first-class</h2>
+      </div>
+      <div class="prose">
+        <p>Kuwaiti firms work in both languages, often in the same meeting. In Ultimate ERP, Arabic is not a translation layer on top: every screen mirrors properly, numbers stay left-to-right inside right-to-left text, and the interface uses real Arabic typefaces.</p>
+        <p>Every piece of interface text lives in a catalogue for both languages, and the code only uses logical spacing (start and end instead of left and right), which a lint rule enforces. Each screen is accessibility-checked in both languages.</p>
+      </div>
+      <ul class="chips" style="margin-top:1.2rem"><li>Instrument Serif</li><li>Plus Jakarta Sans</li><li>Readex Pro</li><li>Amiri</li><li>Self-hosted fonts, so on-premises installs work offline</li></ul>
+    </div>
+    <div class="glass rtl-demo">
+      <div class="seg" role="group" aria-label="Language of the example">
+        <button type="button" id="b-en" aria-pressed="true">English</button>
+        <button type="button" id="b-ar" class="ar-b" aria-pressed="false" lang="ar">العربية</button>
+      </div>
+      <div class="inv" id="inv" dir="ltr" lang="en">
+        <div class="inv-top"><h3 id="i-title">Invoice INV-0042</h3><span class="pill mint" id="i-status">Sent</span></div>
+        <dl>
+          <div><dt id="i-l1">Client</dt><dd id="i-v1">Marina Capital</dd></div>
+          <div><dt id="i-l2">Engagement</dt><dd id="i-v2">ISO 27001 readiness</dd></div>
+          <div><dt id="i-l3">Due</dt><dd id="i-v3">30 November 2026</dd></div>
+          <div><dt id="i-l4">Amount due</dt><dd class="total" id="i-v4">KWD 4,250.000</dd></div>
+        </dl>
+        <button type="button" class="btn solid go" id="i-go">Send reminder</button>
+      </div>
+      <p class="muted" style="margin-top:0.8rem" id="i-note">Example data. Switch the language and the whole card mirrors.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="perf-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display" id="perf-h">Fast with two million time entries</h2>
+      <p class="sub">I load-tested one company at the size the architecture targets: 500 people, 1,000 clients, 5,000 projects, 40,000 tasks and 2,000,000 time entries, with ten people using it at once. Each bar shows how much of its time budget the request used at the 95th percentile.</p>
+    </div>
+    <div class="glass perf" id="perf">
+      <div class="perf-group">
+        <h3>Screens and lists</h3>
+        <p>Budget: 300 ms</p>
+        <div class="bars">
+          <div class="bar-row"><span>Any page (access check)</span><div class="track"><i style="--w:11.3%"></i></div><output>34 ms</output></div>
+          <div class="bar-row"><span>Clients list</span><div class="track"><i style="--w:12.3%"></i></div><output>37 ms</output></div>
+          <div class="bar-row"><span>Projects list</span><div class="track"><i style="--w:18.3%"></i></div><output>55 ms</output></div>
+          <div class="bar-row"><span>Tasks list</span><div class="track"><i style="--w:24.7%"></i></div><output>74 ms</output></div>
+          <div class="bar-row"><span>Invoices list</span><div class="track"><i style="--w:43%"></i></div><output>129 ms</output></div>
+          <div class="bar-row"><span>Receivables aging</span><div class="track"><i style="--w:59.3%"></i></div><output>178 ms</output></div>
+          <div class="bar-row"><span>Workload</span><div class="track"><i class="hot" style="--w:90%"></i></div><output>270 ms</output></div>
+        </div>
+      </div>
+      <div class="perf-group">
+        <h3>Executive dashboard</h3>
+        <p>Budget: 500 ms, about fifteen counts and sums across every module</p>
+        <div class="bars"><div class="bar-row"><span>Dashboard</span><div class="track"><i class="hot" style="--w:96.4%"></i></div><output>482 ms</output></div></div>
+      </div>
+      <div class="perf-group">
+        <h3>Reports over a whole year</h3>
+        <p>Budget: 2 seconds, about a million time entries each</p>
+        <div class="bars">
+          <div class="bar-row"><span>Revenue</span><div class="track"><i style="--w:2.9%"></i></div><output>58 ms</output></div>
+          <div class="bar-row"><span>Profitability</span><div class="track"><i style="--w:19.4%"></i></div><output>388 ms</output></div>
+          <div class="bar-row"><span>Projects</span><div class="track"><i class="hot" style="--w:65.9%"></i></div><output>1.32 s</output></div>
+          <div class="bar-row"><span>Tasks</span><div class="track"><i class="hot" style="--w:75.9%"></i></div><output>1.52 s</output></div>
+          <div class="bar-row"><span>Timesheets</span><div class="track"><i class="hot" style="--w:87.2%"></i></div><output>1.74 s</output></div>
+        </div>
+      </div>
+      <p class="target">Measured on 31 October 2026 on a development laptop with other work running, so treat the numbers as relative. The 2 million rows were seeded through the real constraints and triggers.</p>
+    </div>
+
+    <div class="glass perf" style="margin-top:clamp(0.8rem,1.6vw,1.2rem)">
+      <h3>What the test found, and what I fixed</h3>
+      <table class="fixes">
+        <thead><tr><th>Where</th><th>Before</th><th>After</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Tasks report</td><td><s>64 s</s></td><td class="after">1.5 s</td><td>Counted per project in SQL instead of filtering 40,000 tasks once per project in Node.</td></tr>
+          <tr><td>Utilization report</td><td><s>18.7 s, most requests failed</s></td><td class="after">0.8 s</td><td>Summed per person in the database instead of filtering a million rows per person.</td></tr>
+          <tr><td>Receivables aging</td><td><s>1.8 s</s></td><td class="after">178 ms</td><td>Balances and buckets in one SQL query.</td></tr>
+          <tr><td>Dashboard</td><td><s>1.4 s</s></td><td class="after">482 ms</td><td>Billing card in SQL and a partial index for "waiting for approval".</td></tr>
+          <tr><td>First page load</td><td><s>344 kB gzip</s></td><td class="after">234 kB gzip</td><td>Each screen is its own code chunk.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="q-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display" id="q-h">Checked before it was called done</h2>
+      <p class="sub">Every phase ended with tests and a written hand-over. These are the results recorded in the readiness assessment.</p>
+    </div>
+    <div class="q-grid">
+      <div class="q glass"><b>302</b><h3>API tests</h3><p>Run against a real PostgreSQL, a mail catcher, object storage and the virus scanner. No mocks for the database.</p></div>
+      <div class="q glass"><b>WCAG 2.2 AA</b><h3>Accessibility</h3><p>Automated axe checks on every screen in English and Arabic, plus keyboard and focus checks.</p></div>
+      <div class="q glass"><b>1 command</b><h3>Deployment check</h3><p>Builds the production images and tests HTTPS, security headers, the full sign-up journey and a backup, end to end.</p></div>
+      <div class="q glass"><b>Restore drill</b><h3>Backups</h3><p>Encrypted backups, and an automated restore into a side database that never touches live data.</p></div>
+      <div class="q glass"><b>0 high</b><h3>Dependency audit</h3><p>No high or critical vulnerabilities, licences checked against an allow-list, and a secret scan on every build.</p></div>
+      <div class="q glass"><b>Browser journey</b><h3>Real-browser tests</h3><p>Playwright walks the whole first-day journey in English and Arabic: sign up, create a company, set up two-factor, invite someone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="mob-h">
+  <div class="wrap two">
+    <div>
+      <div class="sec-head"><h2 class="display" id="mob-h">A phone app for the people who are not at a desk</h2></div>
+      <div class="prose">
+        <p>Auditors work at client sites. The Expo and React Native app covers what they need on the move: scanning the office's rotating QR code to check in, their tasks with a timer, their week of time, leave requests, and approvals for managers.</p>
+        <p>It signs in with the same secure session as the web, so there is no second login system to defend. The server address is configurable, so one build serves both the hosted product and an on-premises install.</p>
+      </div>
+    </div>
+    <ul class="checks">
+      <li><strong>Attendance:</strong> QR check-in, history and correction requests.</li>
+      <li><strong>Tasks and time:</strong> status moves, a running timer, add and submit entries.</li>
+      <li><strong>Leave:</strong> balances, a request preview, withdraw and cancel.</li>
+      <li><strong>Approvals:</strong> leave and attendance corrections for managers.</li>
+      <li><strong>Tested</strong> in a browser preview against the real API, in English and Arabic. Store builds wait on developer accounts.</li>
+    </ul>
+  </div>
+</section>
+
+<section aria-labelledby="ds-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display" id="ds-h">A design system, not a pile of screens</h2>
+      <p class="sub">The first direction was a calm slate-and-teal look, and I rejected it as generic. The product now uses a "liquid glass" language: a pastel wallpaper, frosted surfaces, heavy tabular numbers and one deep plum for the main action. This site uses the same language.</p>
+    </div>
+    <div class="ds-grid">
+      <figure class="fig"><div class="shot"><img src="shots/ui-charts-en-light.webp" width="1800" height="522" alt="Two charts: fees billed and collected per month as paired columns with a best-month callout, and billable versus internal hours per week as lines." loading="lazy"></div><figcaption>Charts draw in, label their own peak from the data, and offer a table view for screen readers.</figcaption></figure>
+      <figure class="fig"><div class="shot"><img src="shots/ui-charts-en-dark.webp" width="1800" height="522" alt="The same two charts in the dark theme." loading="lazy"></div><figcaption>Every component ships in light and dark, English and Arabic.</figcaption></figure>
+      <figure class="fig"><div class="shot"><img src="shots/ui-stats-en-dark.webp" width="1800" height="443" alt="Stat tiles in the dark theme." loading="lazy"></div></figure>
+    </div>
+    <ul class="swatches" aria-label="Brand colours">
+      <li class="sw"><i style="background:#3b1f3e"></i>Plum</li>
+      <li class="sw"><i style="background:#8c78ee"></i>Lilac</li>
+      <li class="sw"><i style="background:#34b46c"></i>Mint</li>
+      <li class="sw"><i style="background:#ea5f78"></i>Blush</li>
+      <li class="sw"><i style="background:#f0b93a"></i>Butter</li>
+      <li class="sw"><i style="background:#4f97ec"></i>Sky</li>
+    </ul>
+  </div>
+</section>
+
+<section aria-labelledby="tl-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="display" id="tl-h">From brief to feature-complete in two weeks</h2>
+      <p class="sub">I wrote the product brief, set the rules and made the product decisions. An AI coding agent did the implementation phase by phase, and every phase ended with passing tests and a written hand-over.</p>
+    </div>
+    <ol class="tl">
+      <li><time datetime="2026-10-24">24 Oct</time><div><h3>Architecture and product brief approved</h3><p>Modular monolith, multi-tenant from day one, Kuwait first with KWD to three decimals.</p></div></li>
+      <li><time datetime="2026-10-25">25 to 29 Oct</time><div><h3>Foundation</h3><p>Company isolation in the database, accounts with two-factor, onboarding, invitations, roles, audit log, the design system and the app shell.</p></div></li>
+      <li><time datetime="2026-10-30">30 Oct</time><div><h3>The core modules</h3><p>Clients, contracts, projects, tasks, timesheets, employees, leave, attendance, payroll (test-only) and invoicing.</p></div></li>
+      <li><time datetime="2026-10-31">31 Oct</time><div><h3>Expenses, reports and hardening</h3><p>Notifications, reports, backup and restore, production deployment checks, the performance work above and a security review.</p></div></li>
+      <li><time datetime="2026-11-01">1 to 3 Nov</time><div><h3>Mobile app and founder console</h3><p>The Expo app with a header-based session, and a console where the platform owner sees companies, never their business data.</p></div></li>
+      <li><time datetime="2026-11-08">8 Nov</time><div><h3>Liquid glass redesign</h3><p>A new look across the product after the first direction felt too plain.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="st-h">
+  <div class="wrap">
+    <div class="glass status">
+      <div class="ok">
+        <h3 id="st-h">Where it stands today</h3>
+        <ul>
+          <li>Technically ready for a staging install and a supervised pilot with synthetic or consenting data.</li>
+          <li>Every phase of the original brief is built and verified.</li>
+          <li>Payroll and leave rules are configurable company settings, pre-filled and marked "to be verified by a Kuwaiti lawyer or accountant". Payroll runs stay test-only until a CEO confirms that review.</li>
+        </ul>
+      </div>
+      <div class="todo">
+        <h3>What I would not claim yet</h3>
+        <ul>
+          <li>It is not ready for paying customers: it still needs an external penetration test and legal review.</li>
+          <li>There is no live pilot company yet.</li>
+          <li>The mobile app is not in the app stores. That needs developer accounts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="stack-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" id="stack-h">Under the hood</h2></div>
+    <dl class="stack-list">
+      <div><dt>Web</dt><dd><ul class="chips"><li>React 19</li><li>Vite</li><li>TanStack Router and Query</li><li>Tailwind</li><li>Radix</li><li>TypeScript</li></ul></dd></div>
+      <div><dt>API</dt><dd><ul class="chips"><li>NestJS</li><li>Better Auth</li><li>Zod contracts</li><li>pg-boss worker</li><li>OpenAPI</li></ul></dd></div>
+      <div><dt>Data</dt><dd><ul class="chips"><li>PostgreSQL 18</li><li>Drizzle ORM</li><li>Row-level security</li><li>S3-compatible storage</li><li>ClamAV</li></ul></dd></div>
+      <div><dt>Mobile</dt><dd><ul class="chips"><li>Expo</li><li>React Native</li><li>React Navigation</li></ul></dd></div>
+      <div><dt>Quality and shipping</dt><dd><ul class="chips"><li>Vitest</li><li>Playwright</li><li>axe</li><li>Docker Compose</li><li>Turborepo and pnpm</li><li>OpenTelemetry</li></ul></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section style="padding-top:1rem" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="glass contact-card">
+      <h2 class="display" id="c-h">Let's talk about what you're building.</h2>
+      <p class="sub">I'm open to full stack, GRC technology, AI engineering and ERP roles, in Kuwait or remote. I'm happy to walk through the architecture, the code or a live demo.</p>
+      <div class="cta">
+        <a class="btn solid" href="https://www.linkedin.com/in/omar-alakkad/">Message me on LinkedIn</a>
+        <a class="btn soft" href="https://github.com/oalakkad/ultimate-erp">View the code</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="wrap"><footer><span>Omar Alakkad</span><span>Kuwait</span></footer></div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* performance bars fill when they come into view */
+  var perf = document.getElementById('perf');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { perf.classList.add('live'); io.disconnect(); }
+    }, { threshold: 0.15 });
+    io.observe(perf);
+  } else { perf.classList.add('live'); }
+
+  /* English / Arabic example */
+  var T = {
+    en: { dir: 'ltr', lang: 'en', title: 'Invoice INV-0042', status: 'Sent', l1: 'Client', v1: 'Marina Capital', l2: 'Engagement', v2: 'ISO 27001 readiness', l3: 'Due', v3: '30 November 2026', l4: 'Amount due', v4: 'KWD 4,250.000', go: 'Send reminder', note: 'Example data. Switch the language and the whole card mirrors.' },
+    ar: { dir: 'rtl', lang: 'ar', title: 'فاتورة INV-0042', status: 'مُرسلة', l1: 'العميل', v1: 'مارينا كابيتال', l2: 'الارتباط', v2: 'الجاهزية لـ ISO 27001', l3: 'تاريخ الاستحقاق', v3: '30 نوفمبر 2026', l4: 'المبلغ المستحق', v4: '4,250.000 د.ك', go: 'إرسال تذكير', note: 'بيانات تجريبية. بدّل اللغة وستنعكس البطاقة كاملة.' }
+  };
+  var inv = document.getElementById('inv');
+  var bEn = document.getElementById('b-en'), bAr = document.getElementById('b-ar');
+  function set(l) {
+    var t = T[l];
+    inv.setAttribute('dir', t.dir); inv.setAttribute('lang', t.lang);
+    ['title', 'status', 'l1', 'v1', 'l2', 'v2', 'l3', 'v3', 'l4', 'v4'].forEach(function (k) { document.getElementById('i-' + k).textContent = t[k]; });
+    document.getElementById('i-go').textContent = t.go;
+    var n = document.getElementById('i-note'); n.textContent = t.note; n.setAttribute('dir', t.dir);
+    bEn.setAttribute('aria-pressed', l === 'en'); bAr.setAttribute('aria-pressed', l === 'ar');
+  }
+  bEn.addEventListener('click', function () { set('en'); });
+  bAr.addEventListener('click', function () { set('ar'); });
+
+  /* product tour: shows only the screenshots that are listed in shots/manifest.json */
+  fetch('shots/manifest.json').then(function (r) { return r.ok ? r.json() : []; }).then(function (list) {
+    if (!Array.isArray(list) || !list.length) return;
+    var sec = document.getElementById('tour'), tabs = document.getElementById('tour-tabs'), stage = document.getElementById('tour-stage');
+    function show(i) {
+      var s = list[i];
+      stage.textContent = '';
+      var box = document.createElement('div'); box.className = 'shot';
+      var img = document.createElement('img'); img.src = 'shots/' + s.file; img.alt = s.alt || s.title; box.appendChild(img);
+      var cap = document.createElement('figcaption'); cap.textContent = s.caption || '';
+      stage.appendChild(box); stage.appendChild(cap);
+      Array.prototype.forEach.call(tabs.children, function (b, j) { b.setAttribute('aria-selected', j === i); });
+    }
+    list.forEach(function (s, i) {
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.textContent = s.title;
+      b.addEventListener('click', function () { show(i); }); tabs.appendChild(b);
+    });
+    sec.hidden = false; show(0);
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>
